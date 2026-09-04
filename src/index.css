@@ -276,6 +276,12 @@ body {
   padding: 0 24px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .section-padding {
   padding: 100px 0;
 }

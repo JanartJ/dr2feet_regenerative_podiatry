@@ -98,7 +98,7 @@ export default function Footer({ onOpenBooking }) {
               alt="Dr. 2 Feet Wall Logo Practice"
               style={{
                 width: "100%",
-                height: "220px",
+                // height: "220px",
                 objectFit: "cover",
                 display: "block",
               }}
