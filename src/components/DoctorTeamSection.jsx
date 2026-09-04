@@ -22,7 +22,7 @@ export default function DoctorTeamSection({ onOpenBooking }) {
       name: 'Dr. Sarah Lin, DPM',
       role: 'Director of Regenerative Podiatry',
       specialty: 'Stem Cell Therapy & Aesthetic Toe Reshaping',
-      image: 'https://images.unsplash.com/photo-1594824813566-78a0d4c99738?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800',
       education: 'Columbia University Irving Medical Center | Weil Cornell Medicine',
       bio: 'Dr. Sarah Lin leads our Regenerative Medicine division. She specializes in non-surgical biological therapies including PRP, Amniotic Tissue Grafting, and aesthetic foot resurfacing.',
       awards: ['Top Podiatrist New York City', 'Healthgrades 5-Star Honor Roll', 'Leading Physicians of the World'],
