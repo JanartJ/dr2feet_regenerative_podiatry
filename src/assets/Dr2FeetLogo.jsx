@@ -1,5 +1,5 @@
 import React from "react";
-import dr2feetLogo from "../assets/dr.2feet_logo.png";
+import dr2feetLogo from "../assets/dr2feet_logo.png";
 
 /**
  * Dr2FeetLogo Component

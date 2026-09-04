@@ -60,11 +60,11 @@ export default function Header({ onOpenBooking }) {
       {/* --- TOP ANNOUNCEMENT / CONTACT BAR --- */}
       <div
         style={{
-          background: "#090B0E",
-          borderBottom: "1px solid rgba(197, 160, 89, 0.2)",
+          background: "var(--bg-light-warm)",
+          borderBottom: "1px solid var(--border-light-gold)",
           padding: "8px 0",
           fontSize: "0.82rem",
-          color: "#A0A5B0",
+          color: "var(--text-dark-secondary)",
         }}
       >
         <div
@@ -114,7 +114,7 @@ export default function Header({ onOpenBooking }) {
               <a
                 href="tel:2124042800"
                 style={{
-                  color: "#FAF8F5",
+                  color: "var(--text-dark-primary)",
                   textDecoration: "none",
                   display: "flex",
                   alignItems: "center",
@@ -131,7 +131,7 @@ export default function Header({ onOpenBooking }) {
               <a
                 href="tel:2122032000"
                 style={{
-                  color: "#FAF8F5",
+                  color: "var(--text-dark-primary)",
                   textDecoration: "none",
                   display: "flex",
                   alignItems: "center",
@@ -157,13 +157,13 @@ export default function Header({ onOpenBooking }) {
           zIndex: 1000,
           transition: "all 0.35s ease",
           background: isScrolled
-            ? "rgba(13, 15, 18, 0.94)"
-            : "rgba(13, 15, 18, 0.85)",
+            ? "rgba(250, 248, 245, 0.96)"
+            : "rgba(250, 248, 245, 0.92)",
           backdropFilter: "blur(16px)",
           borderBottom: isScrolled
-            ? "1px solid rgba(197, 160, 89, 0.3)"
-            : "1px solid rgba(255, 255, 255, 0.08)",
-          boxShadow: isScrolled ? "0 10px 30px rgba(0, 0, 0, 0.5)" : "none",
+            ? "1px solid var(--border-light-gold)"
+            : "1px solid rgba(197, 160, 89, 0.18)",
+          boxShadow: isScrolled ? "0 10px 30px rgba(15, 17, 21, 0.08)" : "none",
           padding: isScrolled ? "12px 0" : "18px 0",
         }}
       >
@@ -177,7 +177,7 @@ export default function Header({ onOpenBooking }) {
         >
           {/* Logo */}
           <a href="#" style={{ textDecoration: "none" }}>
-            <Dr2FeetLogo variant="light" height={75} />
+            <Dr2FeetLogo variant="dark" height={75} />
           </a>
 
           {/* Desktop Nav Items */}
@@ -202,7 +202,7 @@ export default function Header({ onOpenBooking }) {
                 <a
                   href={link.href}
                   style={{
-                    color: "#FAF8F5",
+                    color: "var(--text-dark-primary)",
                     textDecoration: "none",
                     fontSize: "0.92rem",
                     fontWeight: 600,
@@ -216,7 +216,9 @@ export default function Header({ onOpenBooking }) {
                   onMouseEnter={(e) =>
                     (e.target.style.color = "var(--gold-primary)")
                   }
-                  onMouseLeave={(e) => (e.target.style.color = "#FAF8F5")}
+                  onMouseLeave={(e) =>
+                    (e.target.style.color = "var(--text-dark-primary)")
+                  }
                 >
                   {link.name}
                   {link.dropdown && (
@@ -236,11 +238,11 @@ export default function Header({ onOpenBooking }) {
                       top: "100%",
                       left: 0,
                       width: "270px",
-                      background: "#15181C",
-                      border: "1px solid rgba(197, 160, 89, 0.3)",
+                      background: "var(--bg-light-card)",
+                      border: "1px solid var(--border-light-gold)",
                       borderRadius: "12px",
                       padding: "12px 0",
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
+                      boxShadow: "var(--shadow-card)",
                       zIndex: 1010,
                     }}
                   >
@@ -251,7 +253,7 @@ export default function Header({ onOpenBooking }) {
                         style={{
                           display: "block",
                           padding: "10px 20px",
-                          color: "#E0E3EA",
+                          color: "var(--text-dark-secondary)",
                           textDecoration: "none",
                           fontSize: "0.86rem",
                           fontWeight: 500,
@@ -265,7 +267,7 @@ export default function Header({ onOpenBooking }) {
                         }}
                         onMouseLeave={(e) => {
                           e.target.style.background = "transparent";
-                          e.target.style.color = "#E0E3EA";
+                          e.target.style.color = "var(--text-dark-secondary)";
                           e.target.style.paddingLeft = "20px";
                         }}
                       >
@@ -322,15 +324,15 @@ export default function Header({ onOpenBooking }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             style={{
-              background: "#0D0F12",
-              borderBottom: "1px solid rgba(197, 160, 89, 0.3)",
+              background: "var(--bg-light-ivory)",
+              borderBottom: "1px solid var(--border-light-gold)",
               position: "fixed",
               top: "75px",
               left: 0,
               width: "100%",
               zIndex: 999,
               overflow: "hidden",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.8)",
+              boxShadow: "0 20px 40px rgba(15, 17, 21, 0.12)",
             }}
           >
             <div
@@ -347,12 +349,12 @@ export default function Header({ onOpenBooking }) {
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   style={{
-                    color: "#FAF8F5",
+                    color: "var(--text-dark-primary)",
                     textDecoration: "none",
                     fontSize: "1.05rem",
                     fontWeight: 600,
                     padding: "8px 0",
-                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    borderBottom: "1px solid rgba(197, 160, 89, 0.16)",
                     display: "flex",
                     justify: "space-between",
                     alignItems: "center",

@@ -24,9 +24,9 @@ export default function Footer({ onOpenBooking }) {
   return (
     <footer
       style={{
-        background: "#090B0E",
-        color: "#FAF8F5",
-        borderTop: "1px solid rgba(197, 160, 89, 0.25)",
+        background: "var(--bg-light-ivory)",
+        color: "var(--text-dark-primary)",
+        borderTop: "1px solid var(--border-light-gold)",
         paddingTop: "80px",
         paddingBottom: "40px",
       }}
@@ -35,9 +35,9 @@ export default function Footer({ onOpenBooking }) {
         {/* Practice Wall Logo Showcase Banner */}
         <div
           style={{
-            background: "linear-gradient(135deg, #15181C 0%, #0D0F12 100%)",
+            background: "linear-gradient(135deg, #FFFFFF 0%, #F4F0E8 100%)",
             borderRadius: "var(--radius-lg)",
-            border: "1px solid var(--border-dark-gold)",
+            border: "1px solid var(--border-light-gold)",
             padding: "36px",
             marginBottom: "70px",
             display: "grid",
@@ -70,7 +70,7 @@ export default function Footer({ onOpenBooking }) {
             </h3>
             <p
               style={{
-                color: "#A0A5B0",
+                color: "var(--text-dark-secondary)",
                 fontSize: "0.98rem",
                 lineHeight: 1.6,
                 marginBottom: "24px",
@@ -94,7 +94,7 @@ export default function Footer({ onOpenBooking }) {
             }}
           >
             <img
-              src="/assets/logo-wall.png"
+              src="/assets/dr2feet_logo.png"
               alt="Dr. 2 Feet Wall Logo Practice"
               style={{
                 width: "100%",
@@ -117,10 +117,10 @@ export default function Footer({ onOpenBooking }) {
         >
           {/* Col 1: Brand & Logo */}
           <div>
-            <Dr2FeetLogo variant="light" height={75} className="mb-4" />
+            <Dr2FeetLogo variant="dark" height={75} className="mb-4" />
             <p
               style={{
-                color: "#9095A0",
+                color: "var(--text-dark-secondary)",
                 fontSize: "0.9rem",
                 lineHeight: 1.6,
                 marginTop: "16px",
@@ -141,7 +141,7 @@ export default function Footer({ onOpenBooking }) {
               <span
                 style={{
                   fontSize: "0.82rem",
-                  color: "#D0D4DD",
+                  color: "var(--text-dark-primary)",
                   fontWeight: 600,
                 }}
               >
@@ -165,7 +165,7 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <div
               style={{
-                color: "#A0A5B0",
+                color: "var(--text-dark-secondary)",
                 fontSize: "0.9rem",
                 display: "flex",
                 flexDirection: "column",
@@ -193,7 +193,7 @@ export default function Footer({ onOpenBooking }) {
                 <a
                   href="tel:2124042800"
                   style={{
-                    color: "#FAF8F5",
+                    color: "var(--text-dark-primary)",
                     textDecoration: "none",
                     fontWeight: 600,
                   }}
@@ -219,7 +219,7 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <div
               style={{
-                color: "#A0A5B0",
+                color: "var(--text-dark-secondary)",
                 fontSize: "0.9rem",
                 display: "flex",
                 flexDirection: "column",
@@ -247,7 +247,7 @@ export default function Footer({ onOpenBooking }) {
                 <a
                   href="tel:2122032000"
                   style={{
-                    color: "#FAF8F5",
+                    color: "var(--text-dark-primary)",
                     textDecoration: "none",
                     fontWeight: 600,
                   }}
@@ -273,7 +273,7 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <p
               style={{
-                color: "#9095A0",
+                color: "var(--text-dark-secondary)",
                 fontSize: "0.88rem",
                 marginBottom: "16px",
               }}
@@ -314,11 +314,11 @@ export default function Footer({ onOpenBooking }) {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   style={{
-                    background: "#15181C",
-                    border: "1px solid rgba(197, 160, 89, 0.25)",
+                    background: "var(--bg-light-card)",
+                    border: "1px solid var(--border-light-gold)",
                     borderRadius: "var(--radius-full)",
                     padding: "12px 20px",
-                    color: "#FAF8F5",
+                    color: "var(--text-dark-primary)",
                     fontSize: "0.88rem",
                     outline: "none",
                   }}
@@ -338,7 +338,7 @@ export default function Footer({ onOpenBooking }) {
         {/* Bottom Bar */}
         <div
           style={{
-            borderTop: "1px solid rgba(197, 160, 89, 0.15)",
+            borderTop: "1px solid rgba(197, 160, 89, 0.2)",
             paddingTop: "24px",
             display: "flex",
             justifyContent: "space-between",
@@ -346,7 +346,7 @@ export default function Footer({ onOpenBooking }) {
             flexWrap: "wrap",
             gap: "16px",
             fontSize: "0.82rem",
-            color: "#6C727F",
+            color: "var(--text-dark-secondary)",
           }}
         >
           <div>
@@ -355,13 +355,31 @@ export default function Footer({ onOpenBooking }) {
           </div>
 
           <div style={{ display: "flex", gap: "20px" }}>
-            <a href="#" style={{ color: "#9095A0", textDecoration: "none" }}>
+            <a
+              href="#"
+              style={{
+                color: "var(--text-dark-secondary)",
+                textDecoration: "none",
+              }}
+            >
               Privacy Policy
             </a>
-            <a href="#" style={{ color: "#9095A0", textDecoration: "none" }}>
+            <a
+              href="#"
+              style={{
+                color: "var(--text-dark-secondary)",
+                textDecoration: "none",
+              }}
+            >
               Terms of Service
             </a>
-            <a href="#" style={{ color: "#9095A0", textDecoration: "none" }}>
+            <a
+              href="#"
+              style={{
+                color: "var(--text-dark-secondary)",
+                textDecoration: "none",
+              }}
+            >
               HIPAA Compliance
             </a>
           </div>
