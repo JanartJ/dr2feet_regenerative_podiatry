@@ -1,0 +1,687 @@
+/* =========================================================
+   SERVICES SECTION
+========================================================= */
+
+.services-section {
+  width: 100%;
+
+  padding: 100px 24px;
+
+  background: var(--bg-light-ivory, #faf8f5);
+
+  overflow: hidden;
+}
+
+.services-container {
+  width: min(1240px, 100%);
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+     SECTION HEADER
+  ========================================================= */
+
+.services-heading {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin: 0 auto 55px;
+}
+
+.services-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: var(--gold-primary, #b89458);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.services-heading h2 {
+  margin: 0;
+
+  color: var(--text-dark-primary, #171717);
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  font-weight: 500;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.8px;
+}
+
+.services-heading p {
+  margin: 18px auto 0;
+
+  max-width: 600px;
+
+  color: var(--text-dark-secondary, #777);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+     GRID
+  ========================================================= */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+/* =========================================================
+     CARD
+  ========================================================= */
+
+.service-card {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  min-height: 300px;
+
+  padding: 32px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(35, 35, 35, 0.12);
+
+  cursor: default;
+
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover {
+  border-color: rgba(184, 148, 88, 0.6);
+
+  background: #fdfbf7;
+
+  box-shadow: 0 24px 55px rgba(25, 25, 25, 0.1);
+}
+
+/* =========================================================
+     CARD NUMBER
+  ========================================================= */
+
+.service-number {
+  position: absolute;
+
+  top: 24px;
+
+  right: 28px;
+
+  color: rgba(184, 148, 88, 0.35);
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.service-card:hover .service-number {
+  color: rgba(184, 148, 88, 0.8);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+     CARD CONTENT
+  ========================================================= */
+
+.service-card-content {
+  position: relative;
+
+  z-index: 2;
+
+  padding-top: 42px;
+}
+
+.service-card-content h3 {
+  max-width: 320px;
+
+  margin: 0;
+
+  color: var(--text-dark-primary, #171717);
+
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+
+  font-weight: 500;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.4px;
+
+  transition: color 0.3s ease, transform 0.35s ease;
+}
+
+.service-card:hover .service-card-content h3 {
+  color: var(--gold-primary, #b89458);
+
+  transform: translateX(4px);
+}
+
+.service-card-content p {
+  max-width: 310px;
+
+  margin: 16px 0 0;
+
+  color: var(--text-dark-secondary, #777);
+
+  font-size: 0.88rem;
+
+  line-height: 1.65;
+
+  transition: color 0.3s ease;
+}
+
+/* =========================================================
+     ACTION
+  ========================================================= */
+
+.service-card-action {
+  position: relative;
+
+  z-index: 3;
+}
+
+.service-learn-more {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--gold-primary, #b89458);
+
+  font-family: inherit;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.service-learn-more svg {
+  transition: transform 0.3s ease;
+}
+
+.service-learn-more:hover {
+  gap: 15px;
+
+  color: #8e6e39;
+}
+
+.service-learn-more:hover svg {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+     HOVER LINE
+  ========================================================= */
+
+.service-card-line {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 3px;
+
+  background: var(--gold-primary, #b89458);
+
+  transform: scaleX(0);
+
+  transform-origin: left center;
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover .service-card-line {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+     MODAL OVERLAY
+  ========================================================= */
+
+.service-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(15, 17, 21, 0.58);
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+     MODAL
+  ========================================================= */
+
+.service-modal {
+  position: relative;
+
+  width: min(900px, 100%);
+
+  max-height: min(760px, calc(100vh - 60px));
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(184, 148, 88, 0.35);
+
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.25);
+
+  padding: 42px;
+
+  scrollbar-width: thin;
+}
+
+/* =========================================================
+     MODAL HEADER
+  ========================================================= */
+
+.service-modal-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid rgba(184, 148, 88, 0.2);
+}
+
+.modal-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--gold-primary, #b89458);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.service-modal-header h2 {
+  margin: 0;
+
+  color: var(--text-dark-primary, #171717);
+
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+
+  font-weight: 500;
+
+  line-height: 1.15;
+}
+
+.service-modal-header p {
+  margin: 10px 0 0;
+
+  color: var(--text-dark-secondary, #777);
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+     CLOSE
+  ========================================================= */
+
+.service-modal-close {
+  width: 42px;
+
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(184, 148, 88, 0.35);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text-dark-primary, #171717);
+
+  cursor: pointer;
+
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service-modal-close:hover {
+  background: var(--gold-primary, #b89458);
+
+  border-color: var(--gold-primary, #b89458);
+
+  color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+     SURGICAL GRID
+  ========================================================= */
+
+.surgical-services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 35px;
+
+  row-gap: 0;
+
+  padding: 25px 0;
+}
+
+.surgical-service-item {
+  min-height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 11px 4px;
+
+  border-bottom: 1px solid rgba(35, 35, 35, 0.08);
+
+  color: var(--text-dark-primary, #171717);
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  line-height: 1.4;
+
+  transition: color 0.25s ease, padding-left 0.3s ease, background 0.25s ease;
+}
+
+.surgical-service-item svg {
+  flex-shrink: 0;
+
+  color: var(--gold-primary, #b89458);
+
+  transition: transform 0.25s ease;
+}
+
+.surgical-service-item:hover {
+  color: var(--gold-primary, #b89458);
+
+  padding-left: 10px;
+
+  background: rgba(184, 148, 88, 0.035);
+}
+
+.surgical-service-item:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+     MODAL FOOTER
+  ========================================================= */
+
+.service-modal-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(184, 148, 88, 0.2);
+
+  color: var(--text-dark-secondary, #777);
+
+  font-size: 0.78rem;
+}
+
+.service-modal-footer button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--gold-primary, #b89458);
+
+  font-family: inherit;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.service-modal-footer button:hover {
+  color: #8e6e39;
+}
+
+/* =========================================================
+     TABLET
+  ========================================================= */
+
+@media (max-width: 900px) {
+  .services-section {
+    padding: 80px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card {
+    min-height: 320px;
+
+    padding: 28px;
+  }
+
+  .service-modal {
+    padding: 34px;
+  }
+}
+
+/* =========================================================
+     MOBILE
+  ========================================================= */
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 65px 16px;
+  }
+
+  .services-heading {
+    margin-bottom: 35px;
+  }
+
+  .services-heading h2 {
+    font-size: 2rem;
+  }
+
+  .services-heading p {
+    font-size: 0.9rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .service-card {
+    aspect-ratio: auto;
+
+    min-height: 270px;
+
+    padding: 26px;
+  }
+
+  .service-card-content {
+    padding-top: 32px;
+  }
+
+  .service-card-content h3 {
+    font-size: 1.55rem;
+  }
+
+  .service-card-content p {
+    font-size: 0.84rem;
+
+    max-width: 280px;
+  }
+
+  /* MODAL */
+
+  .service-modal-overlay {
+    align-items: center;
+
+    padding: 15px;
+  }
+
+  .service-modal {
+    width: 100%;
+
+    max-height: calc(100vh - 30px);
+
+    padding: 26px 20px;
+  }
+
+  .service-modal-header {
+    gap: 15px;
+
+    padding-bottom: 20px;
+  }
+
+  .service-modal-header h2 {
+    font-size: 1.65rem;
+  }
+
+  .service-modal-header p {
+    font-size: 0.82rem;
+  }
+
+  .service-modal-close {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  /* ONE COLUMN */
+
+  .surgical-services-grid {
+    grid-template-columns: 1fr;
+
+    column-gap: 0;
+
+    padding: 18px 0;
+  }
+
+  .surgical-service-item {
+    min-height: 47px;
+
+    font-size: 0.85rem;
+  }
+
+  .service-modal-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+     VERY SMALL MOBILE
+  ========================================================= */
+
+@media (max-width: 380px) {
+  .service-card {
+    min-height: 250px;
+
+    padding: 22px;
+  }
+
+  .service-card-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .service-modal {
+    padding: 22px 16px;
+  }
+}

@@ -1,0 +1,1899 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+.bunion-page {
+    --gold: #b69762;
+    --gold-dark: #927543;
+    --black: #171717;
+    --text: #4d4d4d;
+    --muted: #777;
+    --cream: #f8f6f1;
+    --white: #ffffff;
+    --border: rgba(182, 151, 98, 0.22);
+  
+    color: var(--black);
+  
+    background:
+      var(--white);
+  
+    overflow: hidden;
+  }
+  
+  
+  .bunion-page *,
+  .bunion-page *::before,
+  .bunion-page *::after {
+    box-sizing: border-box;
+  }
+  
+  
+  .bunion-container {
+    width: min(
+      1180px,
+      calc(100% - 48px)
+    );
+  
+    margin: 0 auto;
+  }
+  
+  
+  /* =========================================================
+     COMMON
+  ========================================================= */
+  
+  .eyebrow {
+    display: inline-block;
+  
+    color: var(--gold);
+  
+    font-size: 0.68rem;
+  
+    font-weight: 700;
+  
+    letter-spacing: 3px;
+  
+    line-height: 1.4;
+  }
+  
+  
+  .eyebrow-light {
+    color: #dfc895;
+  }
+  
+  
+  .gold-button {
+    display: inline-flex;
+  
+    align-items: center;
+  
+    gap: 10px;
+  
+    padding: 14px 24px;
+  
+    border: 1px solid var(--gold);
+  
+    background: var(--gold);
+  
+    color: white;
+  
+    font-size: 0.8rem;
+  
+    font-weight: 600;
+  
+    letter-spacing: 0.5px;
+  
+    text-decoration: none;
+  
+    cursor: pointer;
+  
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  
+  
+  .gold-button:hover {
+    background: var(--gold-dark);
+  
+    transform: translateY(-3px);
+  
+    box-shadow:
+      0 12px 30px
+      rgba(146, 117, 67, 0.22);
+  }
+  
+  
+  .text-link {
+    display: inline-flex;
+  
+    align-items: center;
+  
+    gap: 8px;
+  
+    color: var(--gold-dark);
+  
+    font-size: 0.8rem;
+  
+    font-weight: 600;
+  
+    text-decoration: none;
+  
+    transition:
+      gap 0.3s ease;
+  }
+  
+  
+  .text-link:hover {
+    gap: 13px;
+  }
+  
+  
+  /* =========================================================
+     HERO
+  ========================================================= */
+  
+  .bunion-hero {
+    position: relative;
+  
+    min-height: 650px;
+  
+    display: flex;
+  
+    align-items: flex-end;
+  
+    overflow: hidden;
+  }
+  
+  
+  .bunion-hero-bg {
+    position: absolute;
+  
+    inset: 0;
+  
+    background-position: center;
+  
+    background-size: cover;
+  
+    transform: scale(1.02);
+  }
+  
+  
+  .bunion-hero-overlay {
+    position: absolute;
+  
+    inset: 0;
+  
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.66),
+        rgba(0, 0, 0, 0.20),
+        rgba(0, 0, 0, 0.06)
+      );
+  }
+  
+  
+  .bunion-hero-content {
+    position: relative;
+  
+    z-index: 2;
+  
+    max-width: 650px;
+  
+    padding:
+      100px 0 85px;
+  
+    color: white;
+  }
+  
+  
+  .bunion-hero h1 {
+    margin: 18px 0;
+  
+    font-size:
+      clamp(
+        3.2rem,
+        7vw,
+        6.5rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 0.95;
+  
+    letter-spacing: -3px;
+  }
+  
+  
+  .bunion-hero p {
+    max-width: 540px;
+  
+    margin: 0 0 30px;
+  
+    color:
+      rgba(255,255,255,0.86);
+  
+    font-size:
+      clamp(
+        0.95rem,
+        1.6vw,
+        1.15rem
+      );
+  
+    line-height: 1.75;
+  }
+  
+  
+  /* =========================================================
+     INTRO
+  ========================================================= */
+  
+  .intro-section {
+    padding: 110px 0;
+  
+    background: white;
+  }
+  
+  
+  .intro-content {
+    max-width: 850px;
+  
+    margin: 0 auto;
+  
+    text-align: center;
+  }
+  
+  
+  .intro-content h2 {
+    margin:
+      15px 0 22px;
+  
+    font-size:
+      clamp(
+        2rem,
+        4vw,
+        3.6rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.05;
+  
+    letter-spacing: -1.5px;
+  }
+  
+  
+  .intro-content p {
+    max-width: 730px;
+  
+    margin:
+      0 auto 15px;
+  
+    color: var(--text);
+  
+    font-size: 0.95rem;
+  
+    line-height: 1.9;
+  }
+  
+  
+  .intro-content .text-link {
+    margin-top: 15px;
+  }
+  
+  
+  /* =========================================================
+     PROCEDURE STRIP
+  ========================================================= */
+  
+  .procedure-strip {
+    padding: 25px 0;
+  
+    background: var(--cream);
+  
+    border-top:
+      1px solid var(--border);
+  
+    border-bottom:
+      1px solid var(--border);
+  }
+  
+  
+  .procedure-strip-inner {
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content:
+      space-between;
+  
+    gap: 30px;
+  }
+  
+  
+  .strip-label {
+    flex-shrink: 0;
+  
+    color: var(--gold-dark);
+  
+    font-size: 0.65rem;
+  
+    font-weight: 700;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .toe-images {
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: flex-end;
+  
+    gap: 8px;
+  
+    flex: 1;
+  }
+  
+  
+  .toe-placeholder {
+    width: 55px;
+  
+    height: 40px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    border-bottom:
+      1px solid var(--gold);
+  
+    color:
+      rgba(146,117,67,0.35);
+  
+    font-size: 0.55rem;
+  }
+  
+  
+  /* =========================================================
+     SPLIT SECTION
+  ========================================================= */
+  
+  .split-section {
+    display: grid;
+  
+    grid-template-columns:
+      1fr 1fr;
+  
+    min-height: 650px;
+  }
+  
+  
+  .split-image {
+    overflow: hidden;
+  }
+  
+  
+  .split-image img {
+    width: 100%;
+  
+    height: 100%;
+  
+    min-height: 600px;
+  
+    display: block;
+  
+    object-fit: cover;
+  }
+  
+  
+  .split-content {
+    display: flex;
+  
+    flex-direction: column;
+  
+    justify-content: center;
+  
+    padding:
+      80px clamp(
+        35px,
+        7vw,
+        100px
+      );
+  }
+  
+  
+  .split-content h2 {
+    max-width: 500px;
+  
+    margin:
+      15px 0 25px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        4rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.02;
+  
+    letter-spacing: -1.5px;
+  }
+  
+  
+  .split-content p {
+    max-width: 500px;
+  
+    margin:
+      0 0 14px;
+  
+    color: var(--text);
+  
+    font-size: 0.92rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  .check-list {
+    display: grid;
+  
+    gap: 12px;
+  
+    margin: 22px 0 0;
+  
+    padding: 0;
+  
+    list-style: none;
+  }
+  
+  
+  .check-list li {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 12px;
+  
+    color: var(--text);
+  
+    font-size: 0.85rem;
+  }
+  
+  
+  .check-list li span {
+    width: 7px;
+  
+    height: 7px;
+  
+    flex-shrink: 0;
+  
+    border-radius: 50%;
+  
+    background: var(--gold);
+  }
+  
+  
+  /* =========================================================
+     CENTER SECTION
+  ========================================================= */
+  
+  .center-section {
+    padding:
+      110px 24px;
+  }
+  
+  
+  .center-content {
+    max-width: 700px;
+  
+    margin:
+      0 auto 55px;
+  
+    text-align: center;
+  }
+  
+  
+  .center-content h2 {
+    margin:
+      15px 0;
+  
+    font-size:
+      clamp(
+        2.1rem,
+        4vw,
+        3.7rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.05;
+  }
+  
+  
+  .center-content p {
+    color: var(--text);
+  
+    font-size: 0.92rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  .symptom-grid {
+    width: min(
+      1050px,
+      100%
+    );
+  
+    margin: 0 auto;
+  
+    display: grid;
+  
+    grid-template-columns:
+      repeat(3, 1fr);
+  
+    border-top:
+      1px solid var(--border);
+  
+    border-left:
+      1px solid var(--border);
+  }
+  
+  
+  .symptom-card {
+    min-height: 180px;
+  
+    padding: 30px;
+  
+    border-right:
+      1px solid var(--border);
+  
+    border-bottom:
+      1px solid var(--border);
+  
+    transition:
+      background 0.35s ease,
+      transform 0.35s ease;
+  }
+  
+  
+  .symptom-card:hover {
+    background: var(--cream);
+  
+    transform:
+      translateY(-4px);
+  }
+  
+  
+  .symptom-number {
+    display: block;
+  
+    margin-bottom: 35px;
+  
+    color:
+      rgba(182,151,98,0.65);
+  
+    font-size: 0.65rem;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .symptom-card h3 {
+    margin: 0;
+  
+    font-size: 1.05rem;
+  
+    font-weight: 500;
+  }
+  
+  
+  /* =========================================================
+     EDITORIAL
+  ========================================================= */
+  
+  .editorial-section {
+    width: min(
+      1180px,
+      calc(100% - 48px)
+    );
+  
+    margin: 0 auto;
+  
+    padding:
+      100px 0;
+  
+    display: grid;
+  
+    grid-template-columns:
+      0.9fr 1.1fr;
+  
+    gap: 80px;
+  
+    align-items: center;
+  }
+  
+  
+  .editorial-reverse {
+    grid-template-columns:
+      1.1fr 0.9fr;
+  }
+  
+  
+  .editorial-reverse .editorial-content {
+    order: 2;
+  }
+  
+  
+  .editorial-reverse .editorial-image {
+    order: 1;
+  }
+  
+  
+  .editorial-content h2 {
+    max-width: 530px;
+  
+    margin:
+      15px 0 25px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        4rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.02;
+  
+    letter-spacing: -1.5px;
+  }
+  
+  
+  .editorial-content p {
+    max-width: 520px;
+  
+    margin-bottom: 15px;
+  
+    color: var(--text);
+  
+    font-size: 0.92rem;
+  
+    line-height: 1.85;
+  }
+  
+  
+  .editorial-content .text-link {
+    margin-top: 15px;
+  }
+  
+  
+  .editorial-image {
+    height: 500px;
+  
+    overflow: hidden;
+  }
+  
+  
+  .editorial-image img {
+    width: 100%;
+  
+    height: 100%;
+  
+    display: block;
+  
+    object-fit: cover;
+  }
+  
+  
+  /* =========================================================
+     DIAGNOSIS
+  ========================================================= */
+  
+  .diagnosis-section {
+    padding:
+      110px 0;
+  
+    background:
+      var(--cream);
+  }
+  
+  
+  .diagnosis-heading {
+    max-width: 650px;
+  
+    margin-bottom: 60px;
+  }
+  
+  
+  .diagnosis-heading h2 {
+    margin-top: 15px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        3.8rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.04;
+  }
+  
+  
+  .diagnosis-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(3, 1fr);
+  
+    gap: 35px;
+  }
+  
+  
+  .diagnosis-grid > div {
+    padding-top: 25px;
+  
+    border-top:
+      1px solid var(--gold);
+  }
+  
+  
+  .diagnosis-grid h3 {
+    margin: 0 0 15px;
+  
+    font-size: 1.1rem;
+  
+    font-weight: 500;
+  }
+  
+  
+  .diagnosis-grid p {
+    margin: 0;
+  
+    color: var(--text);
+  
+    font-size: 0.85rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  /* =========================================================
+     BENEFITS
+  ========================================================= */
+  
+  .benefits-section {
+    padding:
+      110px 0;
+  }
+  
+  
+  .benefits-heading {
+    max-width: 700px;
+  
+    margin-bottom: 55px;
+  }
+  
+  
+  .benefits-heading h2 {
+    margin-top: 15px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        3.8rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.05;
+  }
+  
+  
+  .benefits-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(3, 1fr);
+  
+    border-top:
+      1px solid var(--border);
+  
+    border-left:
+      1px solid var(--border);
+  }
+  
+  
+  .benefit-card {
+    min-height: 230px;
+  
+    padding: 30px;
+  
+    border-right:
+      1px solid var(--border);
+  
+    border-bottom:
+      1px solid var(--border);
+  
+    transition:
+      background 0.35s ease;
+  }
+  
+  
+  .benefit-card:hover {
+    background:
+      var(--cream);
+  }
+  
+  
+  .benefit-card > span {
+    color: var(--gold);
+  
+    font-size: 0.65rem;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .benefit-card h3 {
+    margin:
+      45px 0 12px;
+  
+    font-size: 1.15rem;
+  
+    font-weight: 500;
+  }
+  
+  
+  .benefit-card p {
+    margin: 0;
+  
+    color: var(--muted);
+  
+    font-size: 0.82rem;
+  
+    line-height: 1.7;
+  }
+  
+  
+  /* =========================================================
+     OPTIONS
+  ========================================================= */
+  
+  .options-section {
+    padding:
+      110px 0;
+  
+    background:
+      #f4f0e8;
+  }
+  
+  
+  .options-heading {
+    max-width: 700px;
+  
+    margin-bottom: 55px;
+  }
+  
+  
+  .options-heading h2 {
+    margin:
+      15px 0;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        3.8rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.04;
+  }
+  
+  
+  .options-heading p {
+    color: var(--text);
+  
+    font-size: 0.9rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  .options-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(2, 1fr);
+  
+    gap: 14px;
+  }
+  
+  
+  .option-card {
+    position: relative;
+  
+    min-height: 220px;
+  
+    padding: 32px;
+  
+    background: white;
+  
+    border:
+      1px solid
+      rgba(0,0,0,0.06);
+  
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  
+  
+  .option-card:hover {
+    transform:
+      translateY(-6px);
+  
+    box-shadow:
+      0 20px 45px
+      rgba(0,0,0,0.08);
+  }
+  
+  
+  .option-card > span {
+    color: var(--gold);
+  
+    font-size: 0.65rem;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .option-card h3 {
+    margin:
+      45px 0 12px;
+  
+    font-size: 1.25rem;
+  
+    font-weight: 500;
+  }
+  
+  
+  .option-card p {
+    max-width: 500px;
+  
+    margin: 0 0 20px;
+  
+    color: var(--muted);
+  
+    font-size: 0.83rem;
+  
+    line-height: 1.7;
+  }
+  
+  
+  .option-card svg {
+    color: var(--gold);
+  }
+  
+  
+  /* =========================================================
+     COSMETIC
+  ========================================================= */
+  
+  .cosmetic-section {
+    position: relative;
+  
+    min-height: 600px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    overflow: hidden;
+  }
+  
+  
+  .cosmetic-bg {
+    position: absolute;
+  
+    inset: 0;
+  
+    background-size: cover;
+  
+    background-position: center;
+  }
+  
+  
+  .cosmetic-overlay {
+    position: absolute;
+  
+    inset: 0;
+  
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,0.94),
+        rgba(255,255,255,0.70),
+        rgba(255,255,255,0.25)
+      );
+  }
+  
+  
+  .cosmetic-content {
+    position: relative;
+  
+    z-index: 2;
+  
+    max-width: 600px;
+  
+    padding:
+      110px 0;
+  }
+  
+  
+  .cosmetic-content h2 {
+    margin:
+      15px 0 22px;
+  
+    font-size:
+      clamp(
+        2.4rem,
+        5vw,
+        4.8rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1;
+  
+    letter-spacing: -2px;
+  }
+  
+  
+  .cosmetic-content p {
+    max-width: 500px;
+  
+    color: var(--text);
+  
+    font-size: 0.92rem;
+  
+    line-height: 1.85;
+  }
+  
+  
+  /* =========================================================
+     RECOVERY
+  ========================================================= */
+  
+  .recovery-section {
+    display: grid;
+  
+    grid-template-columns:
+      1fr 1fr;
+  
+    min-height: 650px;
+  }
+  
+  
+  .recovery-image {
+    overflow: hidden;
+  }
+  
+  
+  .recovery-image img {
+    width: 100%;
+  
+    height: 100%;
+  
+    min-height: 600px;
+  
+    object-fit: cover;
+  
+    display: block;
+  }
+  
+  
+  .recovery-content {
+    display: flex;
+  
+    flex-direction: column;
+  
+    justify-content: center;
+  
+    padding:
+      80px clamp(
+        35px,
+        7vw,
+        100px
+      );
+  }
+  
+  
+  .recovery-content h2 {
+    max-width: 520px;
+  
+    margin:
+      15px 0 22px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        4rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.02;
+  }
+  
+  
+  .recovery-content > p {
+    max-width: 500px;
+  
+    color: var(--text);
+  
+    font-size: 0.9rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  .recovery-list {
+    margin-top: 35px;
+  }
+  
+  
+  .recovery-list > div {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 20px;
+  
+    padding:
+      15px 0;
+  
+    border-bottom:
+      1px solid var(--border);
+  }
+  
+  
+  .recovery-list strong {
+    color: var(--gold);
+  
+    font-size: 0.65rem;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .recovery-list span {
+    color: var(--text);
+  
+    font-size: 0.83rem;
+  }
+  
+  
+  /* =========================================================
+     CTA
+  ========================================================= */
+  
+  .consultation-section {
+    position: relative;
+  
+    min-height: 550px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    text-align: center;
+  
+    overflow: hidden;
+  }
+  
+  
+  .consultation-bg {
+    position: absolute;
+  
+    inset: 0;
+  }
+  
+  
+  .consultation-bg img {
+    width: 100%;
+  
+    height: 100%;
+  
+    object-fit: cover;
+  }
+  
+  
+  .consultation-overlay {
+    position: absolute;
+  
+    inset: 0;
+  
+    background:
+      rgba(18,18,18,0.70);
+  }
+  
+  
+  .consultation-content {
+    position: relative;
+  
+    z-index: 2;
+  
+    max-width: 750px;
+  
+    padding: 80px 24px;
+  
+    color: white;
+  }
+  
+  
+  .consultation-content h2 {
+    margin:
+      15px 0 20px;
+  
+    font-size:
+      clamp(
+        2.4rem,
+        5vw,
+        4.7rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1;
+  }
+  
+  
+  .consultation-content p {
+    max-width: 580px;
+  
+    margin:
+      0 auto 28px;
+  
+    color:
+      rgba(255,255,255,0.8);
+  
+    font-size: 0.92rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  /* =========================================================
+     FAQ
+  ========================================================= */
+  
+  .faq-section {
+    padding:
+      110px 0;
+  }
+  
+  
+  .faq-heading {
+    max-width: 650px;
+  
+    margin-bottom: 45px;
+  }
+  
+  
+  .faq-heading h2 {
+    margin-top: 15px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        3.8rem
+      );
+  
+    font-weight: 400;
+  
+    line-height: 1.04;
+  }
+  
+  
+  .faq-list {
+    max-width: 900px;
+  }
+  
+  
+  .faq-item {
+    border-top:
+      1px solid var(--border);
+  }
+  
+  
+  .faq-item:last-child {
+    border-bottom:
+      1px solid var(--border);
+  }
+  
+  
+  .faq-question {
+    width: 100%;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content:
+      space-between;
+  
+    gap: 20px;
+  
+    padding:
+      23px 0;
+  
+    border: none;
+  
+    background: transparent;
+  
+    color: var(--black);
+  
+    font-family: inherit;
+  
+    font-size: 0.95rem;
+  
+    font-weight: 500;
+  
+    text-align: left;
+  
+    cursor: pointer;
+  }
+  
+  
+  .faq-question svg {
+    flex-shrink: 0;
+  
+    color: var(--gold);
+  }
+  
+  
+  .faq-answer {
+    overflow: hidden;
+  }
+  
+  
+  .faq-answer p {
+    max-width: 800px;
+  
+    margin:
+      0 0 25px;
+  
+    color: var(--muted);
+  
+    font-size: 0.85rem;
+  
+    line-height: 1.8;
+  }
+  
+  
+  /* =========================================================
+     LOCATIONS
+  ========================================================= */
+  
+  .locations-section {
+    padding:
+      110px 0;
+  
+    background:
+      var(--cream);
+  }
+  
+  
+  .locations-heading {
+    margin-bottom: 50px;
+  }
+  
+  
+  .locations-heading h2 {
+    margin-top: 15px;
+  
+    font-size:
+      clamp(
+        2.2rem,
+        4vw,
+        3.8rem
+      );
+  
+    font-weight: 400;
+  }
+  
+  
+  .locations-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(2, 1fr);
+  
+    gap: 20px;
+  }
+  
+  
+  .location-card {
+    background: white;
+  
+    border:
+      1px solid var(--border);
+  
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  
+  
+  .location-card:hover {
+    transform:
+      translateY(-5px);
+  
+    box-shadow:
+      0 20px 40px
+      rgba(0,0,0,0.07);
+  }
+  
+  
+  .map-placeholder {
+    height: 260px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    background:
+      #e9e4da;
+  
+    color: var(--gold);
+  }
+  
+  
+  .location-content {
+    padding: 28px;
+  }
+  
+  
+  .location-content > span {
+    color: var(--gold);
+  
+    font-size: 0.62rem;
+  
+    font-weight: 700;
+  
+    letter-spacing: 2px;
+  }
+  
+  
+  .location-content h3 {
+    margin:
+      10px 0 6px;
+  
+    font-size: 1.2rem;
+  
+    font-weight: 500;
+  }
+  
+  
+  .location-content p {
+    margin:
+      0 0 18px;
+  
+    color: var(--muted);
+  
+    font-size: 0.82rem;
+  }
+  
+  
+  .location-content a {
+    display: inline-flex;
+  
+    align-items: center;
+  
+    gap: 7px;
+  
+    color: var(--gold-dark);
+  
+    font-size: 0.78rem;
+  
+    font-weight: 600;
+  
+    text-decoration: none;
+  }
+  
+  
+  /* =========================================================
+     TABLET
+  ========================================================= */
+  
+  @media (max-width: 900px) {
+  
+    .bunion-container {
+      width:
+        min(
+          100% - 36px,
+          700px
+        );
+    }
+  
+  
+    .bunion-hero {
+      min-height: 570px;
+    }
+  
+  
+    .split-section,
+    .recovery-section {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .split-image,
+    .recovery-image {
+      max-height: 500px;
+    }
+  
+  
+    .split-image img,
+    .recovery-image img {
+      min-height: 450px;
+    }
+  
+  
+    .editorial-section,
+    .editorial-reverse {
+      grid-template-columns:
+        1fr;
+  
+      gap: 45px;
+    }
+  
+  
+    .editorial-reverse .editorial-content,
+    .editorial-reverse .editorial-image {
+      order: unset;
+    }
+  
+  
+    .editorial-image {
+      height: 430px;
+    }
+  
+  
+    .diagnosis-grid {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .benefits-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+  
+  
+    .symptom-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+  
+  
+    .procedure-strip-inner {
+      flex-direction:
+        column;
+  
+      align-items:
+        flex-start;
+    }
+  
+  
+    .toe-images {
+      width: 100%;
+  
+      justify-content:
+        flex-start;
+  
+      overflow-x:
+        auto;
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     MOBILE
+  ========================================================= */
+  
+  @media (max-width: 600px) {
+  
+    .bunion-container {
+      width:
+        calc(100% - 30px);
+    }
+  
+  
+    .bunion-hero {
+      min-height:
+        620px;
+    }
+  
+  
+    .bunion-hero-overlay {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.18),
+          rgba(0,0,0,0.76)
+        );
+    }
+  
+  
+    .bunion-hero-content {
+      padding:
+        80px 0 60px;
+    }
+  
+  
+    .bunion-hero h1 {
+      font-size:
+        3.3rem;
+  
+      letter-spacing:
+        -2px;
+    }
+  
+  
+    .bunion-hero p {
+      font-size:
+        0.88rem;
+    }
+  
+  
+    .intro-section,
+    .center-section,
+    .diagnosis-section,
+    .benefits-section,
+    .options-section,
+    .faq-section,
+    .locations-section {
+      padding:
+        75px 0;
+    }
+  
+  
+    .intro-content h2,
+    .center-content h2,
+    .diagnosis-heading h2,
+    .benefits-heading h2,
+    .options-heading h2,
+    .faq-heading h2,
+    .locations-heading h2 {
+      font-size:
+        2.25rem;
+  
+      letter-spacing:
+        -0.8px;
+    }
+  
+  
+    .split-content,
+    .recovery-content {
+      padding:
+        60px 24px;
+    }
+  
+  
+    .split-content h2,
+    .recovery-content h2,
+    .editorial-content h2 {
+      font-size:
+        2.35rem;
+    }
+  
+  
+    .split-image img,
+    .recovery-image img {
+      min-height:
+        390px;
+    }
+  
+  
+    .symptom-grid {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .symptom-card {
+      min-height:
+        145px;
+    }
+  
+  
+    .editorial-section {
+      width:
+        calc(100% - 30px);
+  
+      padding:
+        65px 0;
+    }
+  
+  
+    .editorial-image {
+      height:
+        350px;
+    }
+  
+  
+    .benefits-grid {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .benefit-card {
+      min-height:
+        190px;
+    }
+  
+  
+    .options-grid {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .option-card {
+      min-height:
+        190px;
+    }
+  
+  
+    .cosmetic-section {
+      min-height:
+        520px;
+    }
+  
+  
+    .cosmetic-overlay {
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.82
+        );
+    }
+  
+  
+    .cosmetic-content {
+      padding:
+        70px 0;
+    }
+  
+  
+    .cosmetic-content h2 {
+      font-size:
+        2.8rem;
+    }
+  
+  
+    .recovery-section {
+      display:
+        flex;
+  
+      flex-direction:
+        column;
+    }
+  
+  
+    .recovery-image {
+      order: 1;
+  
+      height:
+        360px;
+    }
+  
+  
+    .recovery-content {
+      order: 2;
+    }
+  
+  
+    .consultation-section {
+      min-height:
+        500px;
+    }
+  
+  
+    .consultation-content h2 {
+      font-size:
+        2.8rem;
+    }
+  
+  
+    .locations-grid {
+      grid-template-columns:
+        1fr;
+    }
+  
+  
+    .map-placeholder {
+      height:
+        210px;
+    }
+  
+  
+    .faq-question {
+      font-size:
+        0.88rem;
+  
+      padding:
+        20px 0;
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     SMALL MOBILE
+  ========================================================= */
+  
+  @media (max-width: 380px) {
+  
+    .bunion-hero h1 {
+      font-size:
+        2.8rem;
+    }
+  
+  
+    .bunion-hero-content {
+      padding-bottom:
+        45px;
+    }
+  
+  
+    .gold-button {
+      width:
+        100%;
+  
+      justify-content:
+        center;
+    }
+  
+  
+    .intro-content h2,
+    .center-content h2,
+    .diagnosis-heading h2,
+    .benefits-heading h2,
+    .options-heading h2,
+    .faq-heading h2,
+    .locations-heading h2 {
+      font-size:
+        2rem;
+    }
+  
+  }
