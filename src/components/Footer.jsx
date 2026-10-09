@@ -9,10 +9,12 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Dr2FeetLogo from "../assets/Dr2FeetLogo";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer({ onOpenBooking }) {
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -117,7 +119,9 @@ export default function Footer({ onOpenBooking }) {
         >
           {/* Col 1: Brand & Logo */}
           <div>
-            <Dr2FeetLogo variant="dark" height={75} className="mb-4" />
+            <div onClick={()=>navigate("/#top")}>
+              <Dr2FeetLogo variant="dark" height={75} className="mb-4"  />
+            </div>
             <p
               style={{
                 color: "var(--text-dark-secondary)",
