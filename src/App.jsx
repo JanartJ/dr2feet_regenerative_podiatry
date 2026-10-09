@@ -19,7 +19,7 @@ import QuickContactFAB from "./components/QuickContactFAB";
 import { Routes, Route } from "react-router-dom";
 import ViewAllService from "./components/services/allServices/allservice";
 import BunionSurgeryPage from "./components/services/allServices/BunionSurgery/BunionSurgeryPage";
-import "./app.css";
+import "./App.css";
 
 const Home = () => {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
