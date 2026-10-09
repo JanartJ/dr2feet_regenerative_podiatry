@@ -42,6 +42,7 @@ export default function HeroSection({ onOpenBooking }) {
         color: "#FAF8F5",
         overflow: "hidden",
         paddingTop: "60px",
+        marginTop: "110px"
       }}
     >
       {/* Background Graphic Overlay */}

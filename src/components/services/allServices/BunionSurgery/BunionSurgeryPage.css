@@ -42,6 +42,160 @@
      COMMON
   ========================================================= */
   
+  /* .capitalize-text {
+    text-transform: capitalize;
+  }
+   */
+
+   /* =========================================================
+   DESKTOP SECTION NAVIGATION
+========================================================= */
+
+.bunion-section-nav {
+  display: block;
+  position: fixed;
+
+  /* Sits beneath the existing website header */
+  /* top: var(--site-header-height, 125px); */
+  top : 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+
+  background: rgba(250, 248, 245, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--border-light-gold);
+  box-shadow: 0 5px 18px rgba(15, 17, 21, 0.05);
+}
+
+.bunion-section-nav-inner {
+  position: relative;
+
+  display: flex;
+  align-items: stretch;
+  gap: 26px;
+
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  scroll-behavior: smooth;
+}
+
+.bunion-section-nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.bunion-section-nav-link {
+  position: relative;
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 0 1px;
+
+  color: var(--text-dark-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+
+  transition: color 0.25s ease;
+}
+
+/* Animated underline */
+.bunion-section-nav-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--gold-primary);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bunion-section-nav-link:hover,
+.bunion-section-nav-link.active {
+  color: var(--gold-primary);
+}
+
+.bunion-section-nav-link.active {
+  font-weight: 600;
+}
+
+.bunion-section-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Prevent target headings from being obscured */
+.bunion-page section[id] {
+  scroll-margin-top: 180px;
+}
+
+/* =========================================================
+   LAPTOP / SMALL DESKTOP
+========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .bunion-section-nav-inner {
+    gap: 20px;
+    padding: 0 22px;
+  }
+
+  .bunion-section-nav-link {
+    font-size: 0.77rem;
+    min-height: 48px;
+  }
+}
+
+/* =========================================================
+   MOBILE — HIDE SECTION NAVIGATION
+========================================================= */
+
+@media (max-width: 991px) {
+  .bunion-section-nav {
+    display: none;
+  }
+
+  .bunion-page section[id] {
+    scroll-margin-top: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bunion-section-nav-inner {
+    scroll-behavior: auto;
+  }
+
+  .bunion-section-nav-link,
+  .bunion-section-nav-link::after {
+    transition: none;
+  }
+}
+
   .eyebrow {
     display: inline-block;
   
@@ -144,6 +298,8 @@
     align-items: flex-end;
   
     overflow: hidden;
+
+    /* margin-top: 10px; */
   }
   
   

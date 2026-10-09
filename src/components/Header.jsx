@@ -8,9 +8,9 @@ import {
   X,
   ChevronDown,
   ChevronRight,
-  ShieldCheck
+  ShieldCheck,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Dr2FeetLogo from "../assets/Dr2FeetLogo";
 
@@ -32,6 +32,48 @@ export default function Header({ onOpenBooking }) {
   const [mobileMenuOpenGroup, setMobileMenuOpenGroup] = useState(null);
 
   const [mobileActiveGroup, setMobileActiveGroup] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === "/";
+
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    
+    if (location.pathname !== "/" || !location.hash) return;
+  
+    const id = decodeURIComponent(location.hash.slice(1));
+  
+    const timeoutId = window.setTimeout(() => {
+      scrollToSection(id);
+    }, 200);
+  
+    return () => window.clearTimeout(timeoutId);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      setHeaderHeight(getHeaderHeight());
+    };
+  
+    updateHeaderHeight();
+  
+    const topbar = document.querySelector(".header-topbar");
+    const mainHeader = document.querySelector(".main-header");
+  
+    const observer = new ResizeObserver(updateHeaderHeight);
+  
+    if (topbar) observer.observe(topbar);
+    if (mainHeader) observer.observe(mainHeader);
+  
+    window.addEventListener("resize", updateHeaderHeight);
+  
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, [isScrolled]);
 
   /* =========================================================
      SCROLL
@@ -277,37 +319,72 @@ export default function Header({ onOpenBooking }) {
      SECTION SCROLL
   ========================================================= */
 
-  const goToSection = (href, event) => {
-    if (event) {
-      event.preventDefault();
-    }
-
-    const id = href?.startsWith("#") ? href.substring(1) : "";
-
-    closeMobileMenu();
-
-    if (!id) return;
-
-    const scrollToTarget = () => {
-      const target = document.getElementById(id);
-
-      if (!target) return;
-
-      const header = document.querySelector(".site-header");
-
-      const headerHeight = header ? header.getBoundingClientRect().height : 0;
-
-      const top =
-        target.getBoundingClientRect().top + window.scrollY - headerHeight;
-
+  const getHeaderHeight = () => {
+    const topbar = document.querySelector(".header-topbar");
+    const mainHeader = document.querySelector(".main-header");
+  
+    return (
+      (topbar?.getBoundingClientRect().height || 0) +
+      (mainHeader?.getBoundingClientRect().height || 0)
+    );
+  };
+  
+  const scrollToSection = (id) => {
+    if (id === "top") {
       window.scrollTo({
-        top: Math.max(0, top),
-        behavior: "smooth"
+        top: 0,
+        behavior: "smooth",
       });
-    };
-
-    window.requestAnimationFrame(() => {
-      window.setTimeout(scrollToTarget, 100);
+      return;
+    }
+  
+    const target = document.getElementById(id);
+  
+    if (!target) return;
+  
+    const top =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      getHeaderHeight() -
+      12;
+  
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: "smooth",
+    });
+  };
+  
+  const goToSection = (href, event) => {
+    event?.preventDefault();
+  
+    const id = href?.startsWith("#") ? href.slice(1) : "";
+  
+    closeMobileMenu();
+  
+    if (!id) return;
+  
+    // From another page, navigate home first.
+    if (location.pathname !== "/") {
+      navigate({
+        pathname: "/",
+        hash: `#${id}`,
+      });
+  
+      return;
+    }
+  
+    // Already on the homepage.
+    navigate(
+      {
+        pathname: "/",
+        hash: `#${id}`,
+      },
+      { replace: true }
+    );
+  
+    // Also scroll immediately if the section is already mounted.
+    requestAnimationFrame(() => {
+      scrollToSection(id);
     });
   };
 
@@ -342,12 +419,397 @@ export default function Header({ onOpenBooking }) {
     setActiveDropdown(null);
   };
 
+  
+  
+  /* =========================================================
+     SERVICE SUB MENUS
+  ========================================================= */
+  
+  const serviceDetails = {
+  
+    /* =======================================================
+       SURGICAL
+    ======================================================= */
+  
+    "Surgical": {
+      eyebrow: "SURGICAL SERVICES",
+  
+      title: "Surgical Treatments",
+  
+      description:
+        "Explore our surgical treatment options for foot and ankle care.",
+  
+      items: [
+        {
+          title: "Bunion Surgery",
+          path: "/services/surgical/bunion-surgery",
+        },
+  
+        {
+          title: "Corn Removal Surgery",
+          path: "/services/surgical/corn-removal-surgery",
+        },
+  
+        {
+          title: "Cosmetic Treatments",
+          path: "/services/surgical/cosmetic-treatments",
+        },
+  
+        {
+          title: "Cryosurgery",
+          path: "/services/surgical/cryosurgery",
+        },
+  
+        {
+          title: "Flat Foot Surgery",
+          path: "/services/surgical/flat-foot-surgery",
+        },
+  
+        {
+          title: "Hammer Toe Surgery",
+          path: "/services/surgical/hammer-toe-surgery",
+        },
+  
+        {
+          title: "Lapiplasty",
+          path: "/services/surgical/lapiplasty",
+        },
+  
+        {
+          title: "Minimally Invasive Bunion Surgery",
+          path: "/services/surgical/minimally-invasive-bunion-surgery",
+        },
+  
+        {
+          title: "Minimally Invasive Foot Surgery",
+          path: "/services/surgical/minimally-invasive-foot-surgery",
+        },
+  
+        {
+          title: "Morton's Neuroma",
+          path: "/services/surgical/mortons-neuroma",
+        },
+  
+        {
+          title: "Reconstructive Surgery",
+          path: "/services/surgical/reconstructive-surgery",
+        },
+  
+        {
+          title: "Tailor's Bunion Surgery",
+          path: "/services/surgical/tailors-bunion-surgery",
+        },
+  
+        {
+          title: "Toe Shortening Surgery",
+          path: "/services/surgical/toe-shortening-surgery",
+        },
+  
+        {
+          title: "Webbed Toe Surgery",
+          path: "/services/surgical/webbed-toe-surgery",
+        },
+      ],
+    },
+  
+  
+    /* =======================================================
+       HEEL TREATMENTS
+    ======================================================= */
+  
+    "Heel Treatments": {
+      eyebrow: "HEEL TREATMENTS",
+  
+      title: "Heel Treatments",
+  
+      description:
+        "Comprehensive treatments designed to relieve heel pain and restore comfortable movement.",
+  
+      items: [
+        {
+          title: "Achilles Tendonitis",
+          path: "/services/heel-treatments/achilles-tendonitis",
+        },
+  
+        {
+          title: "Heel Spur",
+          path: "/services/heel-treatments/heel-spur",
+        },
+  
+        {
+          title: "Minimally Invasive Tendon Repair",
+          path: "/services/heel-treatments/minimally-invasive-tendon-repair",
+        },
+  
+        {
+          title: "Physical Therapy",
+          path: "/services/heel-treatments/physical-therapy",
+        },
+  
+        {
+          title: "Plantar Fasciitis",
+          path: "/services/heel-treatments/plantar-fasciitis",
+        },
+  
+        {
+          title: "Shockwave Therapy",
+          path: "/services/heel-treatments/shockwave-therapy",
+        },
+      ],
+    },
+  
+  
+    /* =======================================================
+       NAIL & FUNGAL
+    ======================================================= */
+  
+    "Nail & Fungal Treatments": {
+      eyebrow: "NAIL & FUNGAL TREATMENTS",
+  
+      title: "Nail & Fungal Treatments",
+  
+      description:
+        "Professional treatment options for common nail, fungal and skin-related foot conditions.",
+  
+      items: [
+        {
+          title: "Athletes Foot",
+          path: "/services/nail-fungal-treatments/athletes-foot",
+        },
+  
+        {
+          title: "Ingrown Toenails",
+          path: "/services/nail-fungal-treatments/ingrown-toenails",
+        },
+  
+        {
+          title: "Medical Grade Pedicure",
+          path: "/services/nail-fungal-treatments/medical-grade-pedicure",
+        },
+  
+        {
+          title: "Nail Fungus",
+          path: "/services/nail-fungal-treatments/nail-fungus",
+        },
+  
+        {
+          title: "Nail Restoration",
+          path: "/services/nail-fungal-treatments/nail-restoration",
+        },
+      ],
+    },
+  
+  
+    /* =======================================================
+       PEDIATRIC FOOT CARE
+    ======================================================= */
+  
+    "Pediatric Foot Care": {
+      eyebrow: "PEDIATRIC FOOT CARE",
+  
+      title: "Pediatric Foot Care",
+  
+      description:
+        "Specialized foot and ankle care focused on the unique needs of children.",
+  
+      items: [
+        {
+          title: "Flat Feet",
+          path: "/services/pediatric-foot-care/flat-feet",
+        },
+  
+        {
+          title: "In Toeing Out Toeing",
+          path: "/services/pediatric-foot-care/in-toeing-out-toeing",
+        },
+      ],
+    },
+  
+  
+    /* =======================================================
+       NON-SURGICAL
+    ======================================================= */
+  
+    "Non-Surgical": {
+      eyebrow: "NON-SURGICAL SERVICES",
+  
+      title: "Non-Surgical Treatments",
+  
+      description:
+        "Conservative treatment options designed to improve mobility, reduce discomfort and support recovery.",
+  
+      items: [
+        {
+          title: "Ankle Sprain",
+          path: "/services/non-surgical/ankle-sprain",
+        },
+  
+        {
+          title: "Cortisone Steroid Injections",
+          path: "/services/non-surgical/cortisone-steroid-injections",
+        },
+  
+        {
+          title: "Custom Orthotics",
+          path: "/services/non-surgical/custom-orthotics",
+        },
+  
+        {
+          title: "Diabetic Foot Care",
+          path: "/services/non-surgical/diabetic-foot-care",
+        },
+  
+        {
+          title: "Graston Technique",
+          path: "/services/non-surgical/graston-technique",
+        },
+  
+        {
+          title: "Kinesiology Taping",
+          path: "/services/non-surgical/kinesiology-taping",
+        },
+  
+        {
+          title: "Liposana Fat Pad Injections",
+          path: "/services/non-surgical/liposana-fat-pad-injections",
+        },
+  
+        {
+          title: "Regenerative Medicine",
+          path: "/services/non-surgical/regenerative-medicine",
+        },
+  
+        {
+          title: "Second Opinion",
+          path: "/services/non-surgical/second-opinion",
+        },
+  
+        {
+          title: "Sports Podiatry",
+          path: "/services/non-surgical/sports-podiatry",
+        },
+  
+        {
+          title: "Stress Fractures",
+          path: "/services/non-surgical/stress-fractures",
+        },
+  
+        {
+          title: "Swift Wart Therapy",
+          path: "/services/non-surgical/swift-wart-therapy",
+        },
+  
+        {
+          title: "Turf Toe",
+          path: "/services/non-surgical/turf-toe",
+        },
+  
+        {
+          title: "Ultrasound",
+          path: "/services/non-surgical/ultrasound",
+        },
+      ],
+    },
+  
+  
+    /* =======================================================
+       IMAGING SERVICES
+    ======================================================= */
+  
+    "Imaging Services": {
+      eyebrow: "IMAGING SERVICES",
+  
+      title: "Imaging Services",
+  
+      description:
+        "Advanced diagnostic imaging to support accurate evaluation and treatment planning.",
+  
+      items: [
+        {
+          title: "O-Scan MRI",
+          path: "/services/imaging/o-scan-mri",
+        },
+  
+        {
+          title: "X-Ray",
+          path: "/services/imaging/x-ray",
+        },
+      ],
+    },
+  };
+
+  // for All service
+  const [activeService, setActiveService] = useState(null);
+  
+  
+    /* =========================================================
+       PREVENT BODY SCROLL WHEN MODAL IS OPEN
+    ========================================================= */
+  
+    useEffect(() => {
+  
+      if (activeService) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+  
+      return () => {
+        document.body.style.overflow = "";
+      };
+  
+    }, [activeService]);
+  
+  
+    /* =========================================================
+       ESCAPE KEY
+    ========================================================= */
+  
+    useEffect(() => {
+  
+      const handleEscape = (event) => {
+  
+        if (
+          event.key === "Escape" &&
+          activeService
+        ) {
+          setActiveService(null);
+        }
+  
+      };
+  
+      window.addEventListener(
+        "keydown",
+        handleEscape
+      );
+  
+      return () => {
+        window.removeEventListener(
+          "keydown",
+          handleEscape
+        );
+      };
+  
+    }, [activeService]);
+  
+  
+    /* =========================================================
+       ACTIVE MODAL DATA
+    ========================================================= */
+  
+    const activeServiceData =
+      activeService
+        ? serviceDetails[activeService]
+        : null;
+
+
   /* =========================================================
      RENDER
   ========================================================= */
 
   return (
-    <div className="site-header">
+    <>
+    <div className="site-header" style={{position : isHomePage ? "fixed" : "sticky"}} >
       {/* =====================================================
           TOP BAR
       ===================================================== */}
@@ -404,7 +866,7 @@ export default function Header({ onOpenBooking }) {
           ================================================= */}
 
           <a
-            href="#"
+            href="/"
             className="header-logo-link"
             onClick={(event) => goToSection("#top", event)}
           >
@@ -594,9 +1056,12 @@ export default function Header({ onOpenBooking }) {
                                 onClick={() => {
                                   setMenuOpen(false);
                                   setActiveMenuGroup(null);
+                                  setActiveService(
+                                    item.title
+                                  )
                                 }}
                               >
-                                {item.title}
+                                {item.title} 
                               </Link>
                             ))}
                           </motion.div>
@@ -802,7 +1267,14 @@ export default function Header({ onOpenBooking }) {
                                     key={item.path}
                                     to={item.path}
                                     className="mobile-submenu-link"
-                                    onClick={closeMobileMenu}
+                                    // onClick={closeMobileMenu}
+                                    onClick={() => {
+                                      // setMenuOpen(false);
+                                      // setActiveMenuGroup(null);
+                                      setActiveService(
+                                        item.title
+                                      )
+                                    }}
                                   >
                                     {item.title}
                                   </Link>
@@ -843,6 +1315,221 @@ export default function Header({ onOpenBooking }) {
       </AnimatePresence>
 
       {/* =====================================================
+                DYNAMIC SERVICE MODAL
+            ===================================================== */}
+      
+            <AnimatePresence>
+      
+              {activeService &&
+                activeServiceData && (
+      
+                <motion.div
+                  className="service-modal-overlay"
+      
+                  initial={{
+                    opacity: 0,
+                  }}
+      
+                  animate={{
+                    opacity: 1,
+                  }}
+      
+                  exit={{
+                    opacity: 0,
+                  }}
+      
+                  transition={{
+                    duration: 0.28,
+                    ease: "easeOut",
+                  }}
+      
+                  onMouseDown={(event) => {
+      
+                    if (
+                      event.target ===
+                      event.currentTarget
+                    ) {
+                      setActiveService(null);
+                    }
+      
+                  }}
+                >
+      
+      
+                  {/* =================================================
+                      MODAL
+                  ================================================= */}
+      
+                  <motion.div
+                    className="service-modal"
+      
+                    initial={{
+                      opacity: 0,
+                      scale: 0.94,
+                      y: 35,
+                    }}
+      
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                    }}
+      
+                    exit={{
+                      opacity: 0,
+                      scale: 0.94,
+                      y: 25,
+                    }}
+      
+                    transition={{
+                      duration: 0.38,
+                      ease: [
+                        0.22,
+                        1,
+                        0.36,
+                        1,
+                      ],
+                    }}
+      
+                    onMouseDown={(event) =>
+                      event.stopPropagation()
+                    }
+                  >
+      
+      
+                    {/* =============================================
+                        MODAL HEADER
+                    ============================================= */}
+      
+                    <div className="service-modal-header">
+      
+                      <div>
+      
+                        <span className="modal-eyebrow">
+                          {activeServiceData.eyebrow}
+                        </span>
+      
+                        <h2>
+                          {activeServiceData.title}
+                        </h2>
+      
+                        <p>
+                          {activeServiceData.description}
+                        </p>
+      
+                      </div>
+      
+      
+                      {/* CLOSE */}
+      
+                      <button
+                        type="button"
+                        className="service-modal-close"
+                        aria-label="Close services"
+      
+                        onClick={() =>
+                          setActiveService(null)
+                        }
+                      >
+      
+                        <X size={21} />
+      
+                      </button>
+      
+                    </div>
+      
+      
+                    {/* =============================================
+                        SERVICE ITEMS
+                    ============================================= */}
+      
+                    <div className="surgical-services-grid">
+      
+                      {activeServiceData.items.map(
+                        (item, index) => (
+      
+                          <motion.div
+                            key={item.path}
+      
+                            initial={{
+                              opacity: 0,
+                              y: 10,
+                            }}
+      
+                            animate={{
+                              opacity: 1,
+                              y: 0,
+                            }}
+      
+                            transition={{
+                              duration: 0.25,
+                              delay:
+                                0.04 * index,
+                            }}
+                          >
+      
+                            <Link
+                              to={item.path}
+                              className="surgical-service-item"
+      
+                              onClick={() =>{
+                                  setActiveService(null)
+                                  closeMobileMenu()
+                                }
+                              }
+                            >
+      
+                              <span>
+                                {item.title}
+                              </span>
+      
+                              <ChevronRight
+                                size={16}
+                              />
+      
+                            </Link>
+      
+                          </motion.div>
+      
+                        )
+                      )}
+      
+                    </div>
+      
+      
+                    {/* =============================================
+                        MODAL FOOTER
+                    ============================================= */}
+      
+                    <div className="service-modal-footer">
+      
+                      <span>
+                        Select a treatment to learn more
+                      </span>
+      
+                      <button
+                        type="button"
+      
+                        onClick={() =>
+                          setActiveService(null)
+                        }
+                      >
+                        Close
+                      </button>
+      
+                    </div>
+      
+                  </motion.div>
+      
+                </motion.div>
+      
+              )}
+      
+            </AnimatePresence>
+      
+
+
+      {/* =====================================================
           CSS
       ===================================================== */}
 
@@ -853,8 +1540,9 @@ export default function Header({ onOpenBooking }) {
         ===================================================== */
 
         .site-header {
-          position: sticky;
+          position: fixed;
           top: 0;
+          left: 0;
           z-index: 1000;
           width: 100%;
         }
@@ -1899,5 +2587,6 @@ export default function Header({ onOpenBooking }) {
 
       `}</style>
     </div>
+    </>
   );
 }
